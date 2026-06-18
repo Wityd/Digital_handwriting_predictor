@@ -18,11 +18,6 @@ import joblib
 def load_model():
     return joblib.load("model.pkl")
 
-try:
-    model = load_model()
-    model_loaded = True
-except FileNotFoundError:
-    model_loaded = False
 
 # ── Styling ────────────────────────────────────────────────────────────────────
 st.markdown("""
