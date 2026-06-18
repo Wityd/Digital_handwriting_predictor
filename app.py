@@ -10,9 +10,41 @@ st.set_page_config(
     page_icon="✏️",
     layout="centered",
 )
+python3 << 'EOF'
+import re
 
+with open("app.py", "r") as f:
+    content = f.read()
+
+old = '''@st.cache_resource
+def load_model():
+    return joblib.load("model.pkl")
+
+# ── Styling'''
+
+new = '''@st.cache_resource
+def load_model():
+    return joblib.load("model.pkl")
+
+try:
+    model = load_model()
+    model_loaded = True
+except FileNotFoundError:
+    model_loaded = False
+
+# ── Styling'''
+
+content = content.replace(old, new)
+
+with open("app.py", "w") as f:
+    f.write(content)
+
+print("Done")
+EOF
 # ── Load model ─────────────────────────────────────────────────────────────────
 @st.cache_resource
+import joblib
+...
 def load_model():
     return joblib.load("model.pkl")
 
