@@ -1,6 +1,6 @@
 import streamlit as st
 import numpy as np
-import pickle
+import joblib
 from PIL import Image, ImageOps
 import io
 
@@ -13,9 +13,10 @@ st.set_page_config(
 
 # ── Load model ─────────────────────────────────────────────────────────────────
 @st.cache_resource
+import joblib
+...
 def load_model():
-    with open("model.pkl", "rb") as f:
-        return pickle.load(f)
+    return joblib.load("model.pkl")
 
 try:
     model = load_model()
