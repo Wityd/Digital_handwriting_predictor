@@ -2,6 +2,7 @@ import streamlit as st
 import numpy as np
 import joblib
 from PIL import Image, ImageOps
+from scipy import ndimage
 
 # ── Page config ────────────────────────────────────────────────────────────────
 st.set_page_config(
