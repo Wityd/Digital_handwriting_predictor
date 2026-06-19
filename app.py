@@ -142,4 +142,12 @@ with st.sidebar:
     - Avoid extra noise/background around the digit  
     """)
     st.divider()
+    st.markdown("**Known limitation:**")
+    st.markdown("""
+    This model is trained only on MNIST — thick, blocky, mouse-drawn digits.
+    Smooth/thin digits from phone screenshots or fonts look different from
+    that training data, so accuracy may drop on those images.
+    For best results, use a thick, bold, hand-drawn digit on a dark background.
+    """)
+    st.divider()
     st.markdown("Built with 🌟 **Streamlit** + **scikit-learn**")
